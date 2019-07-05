@@ -12,8 +12,11 @@ public class Calculator {
 	@Autowired
 	private RatyMalejace ratyMalejace;
 	
-	public void calculate(double kwota, double okres, TypRaty typRat, double oprocentowanie, double prowizja) {
-		ratyMalejace.calculate(kwota, okres, oprocentowanie, prowizja, 0, 0, CzestotliwoscNadplat.MONTHLY);
-		ratyRowne.calculate(kwota, okres, oprocentowanie, prowizja);
+	public Result calculate(double kwota, double okres, double oprocentowanie, double prowizja, double nadplata,
+			int opoznienieNadplaty, CzestotliwoscNadplat czestotliwoscNadplat) {
+		oprocentowanie = oprocentowanie / (100*12);
+		
+		return ratyMalejace.calculate(kwota, okres, oprocentowanie, prowizja, nadplata, opoznienieNadplaty, czestotliwoscNadplat);
+//		ratyRowne.calculate(kwota, okres, oprocentowanie, prowizja);
 	}
 }
