@@ -12,21 +12,21 @@ public class RatyMalejace {
 	 * Okres w miesiacach
 	 * @see MortgageCalculator.MortgageCalculator.logic.Raty#calculate(int, int, double, double)
 	 */
-	public Result calculate(double kwota, double okres, double oprocentowanie, double prowizja, double nadplata,
-			int opoznienieNadplaty, CzestotliwoscNadplat czestotliwoscNadplat) {
-		double rataKapitalowa = kwota / okres;
+	public Result calculate(Request request) {
+		double kwota = request.getKwota();
+		double rataKapitalowa = kwota / request.getOkres();
 		
 		double odsetkiCalkowite = 0;
 		
 		List<Rata> raty = new ArrayList<>();
 		
-		for (int i = 0; i < (int)okres; i++) {
-			double odsetki = oprocentowanie * kwota;
+		for (int i = 0; i < (int)request.getOkres(); i++) {
+			double odsetki = request.getOprocentowanie() * kwota;
 			odsetkiCalkowite += odsetki;
 			
-			if(i >= opoznienieNadplaty && czestotliwoscNadplat != null && i % czestotliwoscNadplat.getCzestotliwosc() == 0) {
-				if(kwota - nadplata > 0)
-					kwota -= nadplata;
+			if(i >= request.getOpoznienieNadplaty() && request.getCzestotliwoscNadplat() != null && i % request.getCzestotliwoscNadplat().getCzestotliwosc() == 0) {
+				if(kwota - request.getNadplata() > 0)
+					kwota -= request.getNadplata();
 				else {
 					raty.add(new Rata(i, rataKapitalowa, odsetki, kwota));
 					System.out.println(i + " " + kwota + " " + odsetki);
