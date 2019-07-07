@@ -14,15 +14,23 @@ public class RatyRowne {
 		double odsetkiCalkowite = 0;
 		
 		List<Rata> raty = new ArrayList<>();
+		double oprocentowanie = request.getOprocentowanie();
 		
-		for (int i = 0; i < (int)request.getOkres(); i++) {
-			double odsetki = request.getOprocentowanie() * kwota;
+		for (int i = 0; i < (int)request.getOkres() && kwota > 0; i++) {
+			double noweOprocentowanie = request.getOprocentowanie(i, oprocentowanie);
+			double odsetki = noweOprocentowanie * kwota;
 			odsetkiCalkowite += odsetki;
+			
+			if(oprocentowanie != noweOprocentowanie) {
+				oprocentowanie = noweOprocentowanie;
+				//przelicz rate bazowa
+			}
 			
 			double rataKapitalowa = rataBazowa - odsetki;
 			if(kwota - rataKapitalowa <= 0) {
 				rataKapitalowa = kwota;
 			}
+			kwota -= rataKapitalowa;
 			
 			if(i >= request.getOpoznienieNadplaty() && request.getCzestotliwoscNadplat() != null && i % request.getCzestotliwoscNadplat().getCzestotliwosc() == 0) {
 				if(kwota - request.getNadplata() > 0)
@@ -35,14 +43,8 @@ public class RatyRowne {
 				}
 			}
 			
-			kwota -= rataKapitalowa;
-			
 			raty.add(new Rata(i, rataKapitalowa, odsetki, kwota));
 			System.out.println(i + " " + rataKapitalowa + " " + odsetki + " " + rataBazowa);
-			
-			if(kwota == 0) {
-				break;
-			}
 		}
 		
 		System.out.println(kwota + " " + odsetkiCalkowite);

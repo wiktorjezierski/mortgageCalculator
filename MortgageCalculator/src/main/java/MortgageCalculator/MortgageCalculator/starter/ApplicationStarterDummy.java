@@ -1,5 +1,8 @@
 package MortgageCalculator.MortgageCalculator.starter;
 
+import java.util.Collections;
+import java.util.Map;
+
 import MortgageCalculator.MortgageCalculator.logic.RatyMalejace;
 import MortgageCalculator.MortgageCalculator.logic.RatyRowne;
 import MortgageCalculator.MortgageCalculator.logic.Request;
@@ -11,10 +14,14 @@ public class ApplicationStarterDummy {
 		RatyMalejace rm = new RatyMalejace();
 		RatyRowne rr = new RatyRowne();
 		
+		Map<Integer, Double> zmianaMarzy = Collections.singletonMap(13, 1.88);
+		
+		
 		Request request = RequestBuilder.with()//
 				.kwota(240000)//
 				.okres(16*12)//
 				.marza(1.88)//
+//				.zmianaMarzy(zmianaMarzy)
 				.wibor(1.79)//
 				.prowizja(0)//
 //				.nadplata(1000)//

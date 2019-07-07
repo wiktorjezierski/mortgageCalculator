@@ -1,5 +1,7 @@
 package MortgageCalculator.MortgageCalculator.logic;
 
+import java.util.Map;
+
 public class RequestBuilder {
 
 	private Request request;
@@ -17,7 +19,7 @@ public class RequestBuilder {
 		return this;
 	}
 
-	public RequestBuilder okres(double okres) {
+	public RequestBuilder okres(int okres) {
 		request.setOkres(okres);
 		return this;
 	}
@@ -49,6 +51,16 @@ public class RequestBuilder {
 
 	public RequestBuilder czestotliwoscNadplat(CzestotliwoscNadplat czestotliwoscNadplat) {
 		request.setCzestotliwoscNadplat(czestotliwoscNadplat);
+		return this;
+	}
+	
+	public RequestBuilder zmianaMarzy(Map<Integer, Double> zmianaMarzy) {
+		request.setZmianaMarzy(zmianaMarzy);
+		return this;
+	}
+	
+	public RequestBuilder zmianaWiboru(Map<Integer, Double> zmianaWiboru) {
+		request.setZmianaWiboru(zmianaWiboru);
 		return this;
 	}
 

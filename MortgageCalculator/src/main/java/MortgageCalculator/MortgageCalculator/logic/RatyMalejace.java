@@ -14,14 +14,15 @@ public class RatyMalejace {
 	 */
 	public Result calculate(Request request) {
 		double kwota = request.getKwota();
-		double rataKapitalowa = kwota / request.getOkres();
+		double rataKapitalowa = kwota / (double)request.getOkres();
 		
 		double odsetkiCalkowite = 0;
 		
 		List<Rata> raty = new ArrayList<>();
+		double oprocentowanie = request.getOprocentowanie();
 		
 		for (int i = 0; i < (int)request.getOkres(); i++) {
-			double odsetki = request.getOprocentowanie() * kwota;
+			double odsetki = request.getOprocentowanie(i, oprocentowanie) * kwota;
 			odsetkiCalkowite += odsetki;
 			
 			if(i >= request.getOpoznienieNadplaty() && request.getCzestotliwoscNadplat() != null && i % request.getCzestotliwoscNadplat().getCzestotliwosc() == 0) {
