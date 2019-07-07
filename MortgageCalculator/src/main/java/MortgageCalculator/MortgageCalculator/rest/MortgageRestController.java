@@ -1,5 +1,7 @@
 package MortgageCalculator.MortgageCalculator.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,7 +20,7 @@ public class MortgageRestController {
 	private Calculator calculator;
 	
 	@GetMapping("/calculate")
-	public Result calculate(@RequestParam double kwota, @RequestParam double okres,
+	public List<Result> calculate(@RequestParam double kwota, @RequestParam double okres,
 			@RequestParam double marza, @RequestParam double wibor, @RequestParam double prowizja, @RequestParam double nadplata,
 			@RequestParam int opoznienieNadplaty, @RequestParam CzestotliwoscNadplat czestotliwoscNadplat) {
 		
@@ -37,7 +39,7 @@ public class MortgageRestController {
 	}
 	
 	@GetMapping("/calculate2")
-	public Result calculate(@RequestParam double kwota, @RequestParam double okres,
+	public List<Result> calculate(@RequestParam double kwota, @RequestParam double okres,
 			@RequestParam double marza, @RequestParam double wibor, @RequestParam double prowizja) {
 		
 		Request request = RequestBuilder.with()//

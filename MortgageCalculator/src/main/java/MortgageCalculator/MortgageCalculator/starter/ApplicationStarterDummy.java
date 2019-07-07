@@ -17,9 +17,9 @@ public class ApplicationStarterDummy {
 				.marza(1.88)//
 				.wibor(1.79)//
 				.prowizja(0)//
-//				.nadplata(6000)//
-//				.opoznienieNadplaty(24)//
-//				.czestotliwoscNadplat(CzestotliwoscNadplat.HALFYEAR)//
+//				.nadplata(1000)//
+//				.opoznienieNadplaty(3*12)//
+//				.czestotliwoscNadplat(CzestotliwoscNadplat.MONTHLY)//
 				.build();
 		
 //		rm.calculate(request);

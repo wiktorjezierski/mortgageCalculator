@@ -23,6 +23,18 @@ public class RatyRowne {
 			if(kwota - rataKapitalowa <= 0) {
 				rataKapitalowa = kwota;
 			}
+			
+			if(i >= request.getOpoznienieNadplaty() && request.getCzestotliwoscNadplat() != null && i % request.getCzestotliwoscNadplat().getCzestotliwosc() == 0) {
+				if(kwota - request.getNadplata() > 0)
+					kwota -= request.getNadplata();
+				else {
+					kwota = 0;
+					raty.add(new Rata(i, rataKapitalowa, odsetki, kwota));
+					System.out.println(i + " " + kwota + " " + odsetki);
+					break;
+				}
+			}
+			
 			kwota -= rataKapitalowa;
 			
 			raty.add(new Rata(i, rataKapitalowa, odsetki, kwota));

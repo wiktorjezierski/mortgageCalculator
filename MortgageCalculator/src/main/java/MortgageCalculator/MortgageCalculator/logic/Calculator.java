@@ -1,5 +1,8 @@
 package MortgageCalculator.MortgageCalculator.logic;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +15,8 @@ public class Calculator {
 	@Autowired
 	private RatyMalejace ratyMalejace;
 	
-	public Result calculate(Request request) {
-		
-		return ratyMalejace.calculate(request);
-//		ratyRowne.calculate(kwota, okres, oprocentowanie, prowizja);
+	public List<Result> calculate(Request request) {
+		return Arrays.asList(ratyMalejace.calculate(request), 
+				ratyRowne.calculate(request));
 	}
 }
