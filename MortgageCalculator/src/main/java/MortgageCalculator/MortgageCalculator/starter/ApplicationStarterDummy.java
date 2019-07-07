@@ -3,6 +3,7 @@ package MortgageCalculator.MortgageCalculator.starter;
 import java.util.Collections;
 import java.util.Map;
 
+import MortgageCalculator.MortgageCalculator.logic.CzestotliwoscNadplat;
 import MortgageCalculator.MortgageCalculator.logic.RatyMalejace;
 import MortgageCalculator.MortgageCalculator.logic.RatyRowne;
 import MortgageCalculator.MortgageCalculator.logic.Request;
@@ -19,17 +20,17 @@ public class ApplicationStarterDummy {
 		
 		Request request = RequestBuilder.with()//
 				.kwota(240000)//
-				.okres(16*12)//
-				.marza(1.88)//
+				.okres(15*12)//
+				.marza(1.99)//
 //				.zmianaMarzy(zmianaMarzy)
-				.wibor(1.79)//
+				.wibor(1.72)//
 				.prowizja(0)//
-//				.nadplata(1000)//
-//				.opoznienieNadplaty(3*12)//
-//				.czestotliwoscNadplat(CzestotliwoscNadplat.MONTHLY)//
+				.nadplata(1000)//
+				.opoznienieNadplaty(3*12)//
+				.czestotliwoscNadplat(CzestotliwoscNadplat.MONTHLY)//
 				.build();
 		
-//		rm.calculate(request);
-		rr.calculate(request);
+		rm.calculate(request);
+//		rr.calculate(request);
 	}
 }

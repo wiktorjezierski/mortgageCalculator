@@ -30,19 +30,19 @@ public class RatyMalejace {
 					kwota -= request.getNadplata();
 				else {
 					raty.add(new Rata(i, rataKapitalowa, odsetki, kwota));
-					System.out.println(i + " " + kwota + " " + odsetki);
+					System.out.println(i + " " + kwota + " " + odsetki + " " + (rataKapitalowa + odsetki));
 					break;
 				}
 			}
 			
 			if(kwota - rataKapitalowa < 0) {
 				raty.add(new Rata(i, rataKapitalowa, odsetki, kwota));
-				System.out.println(i + " " + kwota + " " + odsetki);
+				System.out.println(i + " " + kwota + " " + odsetki + " " + (rataKapitalowa + odsetki));
 				break;
 			}
 			kwota -= rataKapitalowa;
 			raty.add(new Rata(i, rataKapitalowa, odsetki, kwota));
-			System.out.println(i + " " + rataKapitalowa + " " + odsetki);
+			System.out.println(i + " " + rataKapitalowa + " " + odsetki + " " + (rataKapitalowa + odsetki));
 		}
 		
 		System.out.println(kwota + " " + odsetkiCalkowite);

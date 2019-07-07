@@ -115,17 +115,17 @@ public class Request {
 		}
 
 		if (nowaMarza == null) {
-			nowaMarza = findValidValue(rata, zmianaMarzy);
+			nowaMarza = findValidValue(rata, zmianaMarzy, marza);
 		}
 
 		if (nowyWibor == null) {
-			nowyWibor = findValidValue(rata, zmianaWiboru);
+			nowyWibor = findValidValue(rata, zmianaWiboru, wibor);
 		}
 
 		return (nowaMarza + nowyWibor) / (100 * 12);
 	}
 	
-	private double findValidValue(int range, Map<Integer, Double> values) {
+	private double findValidValue(int range, Map<Integer, Double> values, double defaultValue) {
 		int lastKey = 0;
 		for (Entry<Integer, Double> entry : values.entrySet()) {
 			if(entry.getKey() < range) {
@@ -136,6 +136,6 @@ public class Request {
 			}
 		}
 		
-		return 0;
+		return defaultValue;
 	}
 }
