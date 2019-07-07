@@ -76,6 +76,6 @@ public class Request {
 	}
 
 	public double getOprocentowanie() {
-		return (marza + wibor) / (100 * 12);
+		return (marza + wibor) / (100.0 * 12.0);
 	}
 }

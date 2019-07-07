@@ -4,7 +4,9 @@ public class RequestBuilder {
 
 	private Request request;
 	
-	private RequestBuilder() {}
+	private RequestBuilder() {
+		request = new Request();
+	}
 	
 	public static RequestBuilder with() {
 		return new RequestBuilder();
