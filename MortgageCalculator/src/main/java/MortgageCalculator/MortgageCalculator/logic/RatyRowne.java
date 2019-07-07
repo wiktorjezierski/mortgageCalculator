@@ -17,12 +17,9 @@ public class RatyRowne {
 		double oprocentowanie = request.getOprocentowanie();
 		
 		for (int i = 0; i < (int)request.getOkres() && kwota > 0; i++) {
-			double noweOprocentowanie = request.getOprocentowanie(i, oprocentowanie);
-			if(oprocentowanie != noweOprocentowanie) {
-				oprocentowanie = noweOprocentowanie;
-			}
+			oprocentowanie = request.getOprocentowanie(i, oprocentowanie);
 			
-			double odsetki = noweOprocentowanie * kwota;
+			double odsetki = oprocentowanie * kwota;
 			odsetkiCalkowite += odsetki;
 			
 			double rataKapitalowa = rataBazowa - (request.getOprocentowanie() * kwota);

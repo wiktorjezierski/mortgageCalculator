@@ -21,8 +21,8 @@ public class ApplicationStarterDummy {
 		Request request = RequestBuilder.with()//
 				.kwota(240000)//
 				.okres(15*12)//
-				.marza(1.99)//
-//				.zmianaMarzy(zmianaMarzy)
+				.marza(1.10)//
+				.zmianaMarzy(zmianaMarzy)
 				.wibor(1.72)//
 				.prowizja(0)//
 				.nadplata(1000)//
