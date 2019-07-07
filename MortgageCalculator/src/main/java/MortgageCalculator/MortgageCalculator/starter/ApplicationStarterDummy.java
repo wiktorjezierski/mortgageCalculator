@@ -30,7 +30,7 @@ public class ApplicationStarterDummy {
 				.czestotliwoscNadplat(CzestotliwoscNadplat.MONTHLY)//
 				.build();
 		
-		rm.calculate(request);
-//		rr.calculate(request);
+//		rm.calculate(request);
+		rr.calculate(request);
 	}
 }
