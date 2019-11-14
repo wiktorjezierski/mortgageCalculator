@@ -3,6 +3,8 @@ package MortgageCalculator.MortgageCalculator.starter;
 import java.util.HashMap;
 import java.util.Map;
 
+import MortgageCalculator.MortgageCalculator.logic.CzestotliwoscNadplat;
+import MortgageCalculator.MortgageCalculator.logic.KindOfOverpayment;
 import MortgageCalculator.MortgageCalculator.logic.RatyMalejace;
 import MortgageCalculator.MortgageCalculator.logic.RatyRowne;
 import MortgageCalculator.MortgageCalculator.logic.Request;
@@ -25,12 +27,13 @@ public class ApplicationStarterDummy {
 				.zmianaMarzy(zmianaMarzy)
 				.wibor(1.7)//
 				.prowizja(0)//
-//				.nadplata(1000)//
-//				.opoznienieNadplaty(12)//
-//				.czestotliwoscNadplat(CzestotliwoscNadplat.MONTHLY)//
+				.nadplata(1000)//
+				.opoznienieNadplaty(12)//
+				.czestotliwoscNadplat(CzestotliwoscNadplat.MONTHLY)//
+				.kindOfOverpayment(KindOfOverpayment.INSTALLMENT)//
 				.build();
 		
-		rm.calculate(request);
-//		rr.calculate(request);
+//		rm.calculate(request);
+		rr.calculate(request);
 	}
 }

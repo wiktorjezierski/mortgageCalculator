@@ -12,6 +12,7 @@ public class Request {
 	private double wibor;
 	private double prowizja;
 	private double nadplata;
+	private KindOfOverpayment kindOfOverpayment;
 	private int opoznienieNadplaty;
 	private CzestotliwoscNadplat czestotliwoscNadplat;
 	private Map<Integer, Double> zmianaMarzy;
@@ -68,6 +69,14 @@ public class Request {
 
 	public void setNadplata(double nadplata) {
 		this.nadplata = nadplata;
+	}
+	
+	public KindOfOverpayment getKindOfOverpayment() {
+		return kindOfOverpayment;
+	}
+	
+	public void setKindOfOverpayment(KindOfOverpayment kindOfOverpayment) {
+		this.kindOfOverpayment = kindOfOverpayment;
 	}
 
 	public int getOpoznienieNadplaty() {

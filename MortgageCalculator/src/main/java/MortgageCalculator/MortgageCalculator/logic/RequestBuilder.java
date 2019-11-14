@@ -43,6 +43,11 @@ public class RequestBuilder {
 		request.setNadplata(nadplata);
 		return this;
 	}
+	
+	public RequestBuilder kindOfOverpayment(KindOfOverpayment kindOfOverpayment) {
+		request.setKindOfOverpayment(kindOfOverpayment);
+		return this;
+	}
 
 	public RequestBuilder opoznienieNadplaty(int opoznienieNadplaty) {
 		request.setOpoznienieNadplaty(opoznienieNadplaty);
