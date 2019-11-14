@@ -16,13 +16,13 @@ public class RatyRowne {
 		List<Rata> raty = new ArrayList<>();
 		double oprocentowanie = request.getOprocentowanie();
 		
-		for (int i = 0; i < (int)request.getOkres() && kwota > 0; i++) {
+		for (int i = 0; i < request.getOkres() && kwota > 0; i++) {
 			oprocentowanie = request.getOprocentowanie(i, oprocentowanie);
 			
 			double odsetki = oprocentowanie * kwota;
 			odsetkiCalkowite += odsetki;
 			
-			double rataKapitalowa = rataBazowa - (request.getOprocentowanie() * kwota);
+			double rataKapitalowa = rataBazowa - (oprocentowanie * kwota);
 			if(kwota - rataKapitalowa <= 0) {
 				rataKapitalowa = kwota;
 			}

@@ -25,7 +25,8 @@ public class RatyMalejace {
 			double odsetki = request.getOprocentowanie(i, oprocentowanie) * kwota;
 			odsetkiCalkowite += odsetki;
 			
-			if(i >= request.getOpoznienieNadplaty() && request.getCzestotliwoscNadplat() != null && i % request.getCzestotliwoscNadplat().getCzestotliwosc() == 0) {
+			if (i >= request.getOpoznienieNadplaty() && request.getCzestotliwoscNadplat() != null
+					&& i % request.getCzestotliwoscNadplat().getCzestotliwosc() == 0) {
 				if(kwota - request.getNadplata() > 0)
 					kwota -= request.getNadplata();
 				else {

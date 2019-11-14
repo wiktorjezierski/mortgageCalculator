@@ -1,9 +1,8 @@
 package MortgageCalculator.MortgageCalculator.starter;
 
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
-import MortgageCalculator.MortgageCalculator.logic.CzestotliwoscNadplat;
 import MortgageCalculator.MortgageCalculator.logic.RatyMalejace;
 import MortgageCalculator.MortgageCalculator.logic.RatyRowne;
 import MortgageCalculator.MortgageCalculator.logic.Request;
@@ -15,22 +14,23 @@ public class ApplicationStarterDummy {
 		RatyMalejace rm = new RatyMalejace();
 		RatyRowne rr = new RatyRowne();
 		
-		Map<Integer, Double> zmianaMarzy = Collections.singletonMap(13, 1.88);
+//		Map<Integer, Double> zmianaMarzy = Collections.singletonMap(61, 4.0);
+		Map<Integer, Double> zmianaMarzy = new HashMap<>();
 		
 		
 		Request request = RequestBuilder.with()//
-				.kwota(240000)//
+				.kwota(242400)//
 				.okres(15*12)//
-				.marza(1.10)//
+				.marza(2)//
 				.zmianaMarzy(zmianaMarzy)
-				.wibor(1.72)//
+				.wibor(1.7)//
 				.prowizja(0)//
-				.nadplata(1000)//
-				.opoznienieNadplaty(3*12)//
-				.czestotliwoscNadplat(CzestotliwoscNadplat.MONTHLY)//
+//				.nadplata(1000)//
+//				.opoznienieNadplaty(12)//
+//				.czestotliwoscNadplat(CzestotliwoscNadplat.MONTHLY)//
 				.build();
 		
-//		rm.calculate(request);
-		rr.calculate(request);
+		rm.calculate(request);
+//		rr.calculate(request);
 	}
 }
