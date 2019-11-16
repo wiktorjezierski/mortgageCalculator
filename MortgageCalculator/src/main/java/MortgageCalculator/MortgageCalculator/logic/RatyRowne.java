@@ -29,7 +29,7 @@ public class RatyRowne {
 			}
 			kwota -= rataKapitalowa;
 			
-			if(i >= request.getOpoznienieNadplaty() && request.getCzestotliwoscNadplat() != null && i % request.getCzestotliwoscNadplat().getCzestotliwosc() == 0) {
+			if(isOverpaymentAllowed(request, i)) {
 				if(kwota - request.getNadplata() > 0) {
 					kwota -= request.getNadplata();
 					
@@ -51,6 +51,11 @@ public class RatyRowne {
 		
 		System.out.println(kwota + " " + odsetkiCalkowite);
 		return new Result(raty, odsetkiCalkowite);
+	}
+
+	private boolean isOverpaymentAllowed(Request request, int i) {
+		return i >= request.getOpoznienieNadplaty() && request.getCzestotliwoscNadplat() != null
+				&& i % request.getCzestotliwoscNadplat().getCzestotliwosc() == 0;
 	}
 
 	private double calculateRate(double kwota, Request request) {

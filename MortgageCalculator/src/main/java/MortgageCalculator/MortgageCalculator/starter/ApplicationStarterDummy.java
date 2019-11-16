@@ -30,10 +30,10 @@ public class ApplicationStarterDummy {
 				.nadplata(1000)//
 				.opoznienieNadplaty(12)//
 				.czestotliwoscNadplat(CzestotliwoscNadplat.MONTHLY)//
-				.kindOfOverpayment(KindOfOverpayment.INSTALLMENT)//
+				.kindOfOverpayment(KindOfOverpayment.TIME)//
 				.build();
 		
-//		rm.calculate(request);
-		rr.calculate(request);
+		rm.calculate(request);
+//		rr.calculate(request);
 	}
 }
