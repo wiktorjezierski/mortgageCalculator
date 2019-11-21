@@ -18,6 +18,16 @@ public class MortgageRestController {
 	
 	@Autowired
 	private Calculator calculator;
+
+//	@Bean
+//	public WebMvcConfigurer corsConfigurer() {
+//		return new WebMvcConfigurerAdapter() {
+//			@Override
+//			public void addCorsMappings(CorsRegistry registry) {
+//				registry.addMapping("/**").allowedOrigins("*");
+//			}
+//		};
+//	}
 	
 	@GetMapping("/calculate")
 	public List<Result> calculate(@RequestParam double kwota, @RequestParam int okres,
