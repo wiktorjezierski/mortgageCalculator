@@ -16,7 +16,7 @@ public class Calculator {
 	private RatyMalejace ratyMalejace;
 	
 	public List<Result> calculate(Request request) {
-		return Arrays.asList(ratyMalejace.calculate(request), 
-				ratyRowne.calculate(request));
+		return Arrays.asList(ratyRowne.calculate(request), 
+				ratyMalejace.calculate(request));
 	}
 }

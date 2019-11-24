@@ -10,7 +10,7 @@ public class Request {
 	private int okres;
 	private double marza;
 	private double wibor;
-	private double prowizja;
+	private double commission;
 	private double nadplata;
 	private KindOfOverpayment kindOfOverpayment;
 	private int opoznienieNadplaty;
@@ -55,12 +55,17 @@ public class Request {
 		this.wibor = wibor;
 	}
 
-	public double getProwizja() {
-		return prowizja;
+	public double getCommission() {
+		return commission;
+	}
+	
+	public double getAmountOfCommission() {
+		return (commission / 100) * kwota;
 	}
 
+
 	public void setProwizja(double prowizja) {
-		this.prowizja = prowizja;
+		this.commission = prowizja;
 	}
 
 	public double getNadplata() {

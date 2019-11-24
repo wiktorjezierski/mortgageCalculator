@@ -19,6 +19,7 @@ public class RatyMalejace {
 		double nextRataKapitalowa = rataKapitalowa;
 		
 		double odsetkiCalkowite = 0;
+		double sumaNadplat = 0;
 		
 		List<Rata> raty = new ArrayList<>();
 		double oprocentowanie = request.getOprocentowanie();
@@ -31,6 +32,7 @@ public class RatyMalejace {
 				
 				if(kwota - request.getNadplata() > 0) {
 					kwota -= request.getNadplata();
+					sumaNadplat += request.getNadplata();
 					
 					if(request.getKindOfOverpayment() == KindOfOverpayment.TIME) {
 						double tempKwota = kwota - rataKapitalowa;
@@ -57,7 +59,7 @@ public class RatyMalejace {
 		}
 		
 		System.out.println(kwota + " " + odsetkiCalkowite);
-		return new Result(raty, odsetkiCalkowite);
+		return new Result(raty, odsetkiCalkowite, request.getKwota(), request.getAmountOfCommission(), sumaNadplat);
 	}
 	
 	private List<Double> calculateInstallmentWithoutOverpayment(Request request) {

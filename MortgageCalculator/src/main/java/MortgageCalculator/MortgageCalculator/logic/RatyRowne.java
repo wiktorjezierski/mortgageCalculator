@@ -13,6 +13,7 @@ public class RatyRowne {
 		System.out.println("base rate " + rataBazowa);
 		double kwota = request.getKwota();
 		double odsetkiCalkowite = 0;
+		double sumaNadplat = 0;
 		
 		List<Rata> raty = new ArrayList<>();
 		double oprocentowanie = request.getOprocentowanie();
@@ -32,6 +33,7 @@ public class RatyRowne {
 			if(isOverpaymentAllowed(request, i)) {
 				if(kwota - request.getNadplata() > 0) {
 					kwota -= request.getNadplata();
+					sumaNadplat += request.getNadplata();
 					
 					if(request.getKindOfOverpayment() == KindOfOverpayment.INSTALLMENT) {
 						rataBazowa = calculateRate(kwota, request);
@@ -50,7 +52,7 @@ public class RatyRowne {
 		}
 		
 		System.out.println(kwota + " " + odsetkiCalkowite);
-		return new Result(raty, odsetkiCalkowite);
+		return new Result(raty, odsetkiCalkowite, request.getKwota(), request.getAmountOfCommission(), sumaNadplat);
 	}
 
 	private boolean isOverpaymentAllowed(Request request, int i) {

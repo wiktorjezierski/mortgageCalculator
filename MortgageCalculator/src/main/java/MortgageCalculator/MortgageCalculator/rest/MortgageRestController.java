@@ -19,16 +19,6 @@ public class MortgageRestController {
 	@Autowired
 	private Calculator calculator;
 
-//	@Bean
-//	public WebMvcConfigurer corsConfigurer() {
-//		return new WebMvcConfigurerAdapter() {
-//			@Override
-//			public void addCorsMappings(CorsRegistry registry) {
-//				registry.addMapping("/**").allowedOrigins("*");
-//			}
-//		};
-//	}
-	
 	@GetMapping("/calculate")
 	public List<Result> calculate(@RequestParam double kwota, @RequestParam int okres,
 			@RequestParam double marza, @RequestParam double wibor, @RequestParam double prowizja, @RequestParam double nadplata,
@@ -59,7 +49,6 @@ public class MortgageRestController {
 				.wibor(wibor)//
 				.prowizja(prowizja)//
 				.build();
-		
 		return calculator.calculate(request);
 	}
 }
