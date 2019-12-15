@@ -26,24 +26,20 @@ export class AppComponent implements OnInit {
   rodzajNadplaty: string;
 
   public model: Data[];
-
+  public isDataSet;
   title = 'Kallkulator kredytu hipotecznego';
+
+  ngOnInit() {
+    this.isDataSet = false;
+  }
+
   click(event) {
-    this.restService.calculate().subscribe(data => {
+    this.restService.calculate(this.kwota, this.okres, this.marza, this.wibor, this.prowizja).subscribe(data => {
       this.model = data;
+      this.isDataSet = true;
       this.chartHandle.showChartRatyRowne(data[0].chartData);
       this.chartHandle.showChartRatyMalejace(data[1].chartData);
     });
-  }
-
-  ngOnInit() {
-    const data = [
-      new ChartData(450, 'Kwota'),
-      new ChartData(120, 'Odsetki'),
-      new ChartData(300, 'Nadplata')
-    ];
-
-    this.chartHandle.showChartRatyRowne(data);
   }
 }
 

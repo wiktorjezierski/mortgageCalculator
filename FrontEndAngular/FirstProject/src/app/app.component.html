@@ -38,7 +38,7 @@
 <div id="raty">
   <div id="ratyRowne"> 
     <div id="chartContainerRatyRowne"></div>
-    <div id="detailsRatyRowne">szczegoly raty rowne
+    <div *ngIf="isDataSet" id="detailsRatyRowne">
       <table style="width:100%">
         <tr>
           <th>Nr.</th>
@@ -48,16 +48,16 @@
         </tr>
         <tr *ngFor="let rata of model[0].raty">
           <td>{{ rata.numerRaty }}</td>
-          <td>{{ rata.kwota }}</td>
-          <td>{{ rata.rataKapitalowa }}</td>
-          <td>{{ rata.odsetki }}</td>
+          <td>{{ rata.kwota | number : '1.2-2' }}</td>
+          <td>{{ rata.rataKapitalowa | number : '1.2-2' }}</td>
+          <td>{{ rata.odsetki | number : '1.2-2' }}</td>
         </tr>
       </table>
     </div>
   </div>
   <div id="ratyMalejace">
       <div id="chartContainerRatyMalejace"></div>
-      <div id="detailsRatyMalejace">szczegoly raty malejace
+      <div *ngIf="isDataSet" id="detailsRatyMalejace">
         <table style="width:100%">
           <tr>
             <th>Nr.</th>
@@ -67,9 +67,9 @@
           </tr>
           <tr *ngFor="let rata of model[1].raty">
             <td>{{ rata.numerRaty }}</td>
-            <td>{{ rata.kwota }}</td>
-            <td>{{ rata.rataKapitalowa }}</td>
-            <td>{{ rata.odsetki }}</td>
+            <td>{{ rata.kwota | number : '1.2-2' }}</td>
+            <td>{{ rata.rataKapitalowa | number : '1.2-2' }}</td>
+            <td>{{ rata.odsetki | number : '1.2-2' }}</td>
           </tr>
         </table>
       </div>

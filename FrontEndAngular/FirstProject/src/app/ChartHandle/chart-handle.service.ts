@@ -27,7 +27,7 @@ export class ChartHandleService {
       data: [{
         type: 'pie',
         showInLegend: true,
-        toolTipContent: '<b>{name}</b>: ${y} (#percent%)',
+        toolTipContent: '<b>{name}</b>: {y} (#percent%)',
         indexLabel: '{name} - {y} PLN',
         dataPoints: data
       }]

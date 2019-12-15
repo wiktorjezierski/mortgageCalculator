@@ -11,11 +11,10 @@ import { Rata } from '../rata';
 export class RestService {
   constructor(private http: HttpClient) { }
 
-  public calculate(): Observable<Data[]> {
-    const result = this.http.get('http://localhost:8080/calculate2?kwota=250000&&okres=180&&marza=3&&wibor=1&&prowizja=1');
-    // result.subscribe((r: any) =>
-    //   console.log(r[0])
-    // );
+  public calculate(kwota: number, okres: number, marza: number, wibor: number, prowizja: number): Observable<Data[]> {
+    const result = this.http.get(
+      `http://localhost:8080/calculate2?kwota=${kwota}&&okres=${okres}&&marza=${marza}&&wibor=1${wibor}&&prowizja=${prowizja}`);
+
     return result.pipe(
       map((data: any[]) =>
         data.map(

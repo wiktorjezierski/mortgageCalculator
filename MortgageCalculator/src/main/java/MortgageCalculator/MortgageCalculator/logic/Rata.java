@@ -2,10 +2,10 @@ package MortgageCalculator.MortgageCalculator.logic;
 
 public class Rata {
 
-	private double rataKapitalowa;
-	private double odsetki;
 	private int numerRaty;
 	private double kwotaDoSplaty;
+	private double rataKapitalowa;
+	private double odsetki;
 	
 	public Rata(int numerRaty, double rataKapitalowa, double odsetki, double kwota) {
 		super();
@@ -13,6 +13,14 @@ public class Rata {
 		this.odsetki = odsetki;
 		this.numerRaty = numerRaty;
 		this.kwotaDoSplaty = kwota;
+	}
+	
+	public int getNumerRaty() {
+		return numerRaty;
+	}
+	
+	public double getKwota() {
+		return kwotaDoSplaty;
 	}
 
 	public double getRataKapitalowa() {
@@ -22,13 +30,4 @@ public class Rata {
 	public double getOdsetki() {
 		return odsetki;
 	}
-
-	public int getNumerRaty() {
-		return numerRaty;
-	}
-
-	public double getKwota() {
-		return kwotaDoSplaty;
-	}
-	
 }
