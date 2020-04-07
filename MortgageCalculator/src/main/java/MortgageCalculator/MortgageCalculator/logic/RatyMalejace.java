@@ -54,7 +54,7 @@ public class RatyMalejace {
 			}
 			kwota -= rataKapitalowa;
 			raty.add(new Rata(i, rataKapitalowa, odsetki, kwota));
-			System.out.println(i + " " + rataKapitalowa + " " + odsetki + " " + (rataKapitalowa + odsetki));
+			System.out.println(i + " " + rataKapitalowa + " " + odsetki + " " + (rataKapitalowa + odsetki) +" "+ kwota);
 			rataKapitalowa = nextRataKapitalowa;
 		}
 		
