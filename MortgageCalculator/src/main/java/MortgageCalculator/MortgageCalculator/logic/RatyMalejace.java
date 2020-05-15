@@ -28,7 +28,7 @@ public class RatyMalejace {
 		double oprocentowanie = request.getOprocentowanie(yearMonth.lengthOfYear());
 		
 		for (int i = 0; i < request.getOkres(); i++) {
-			double odsetki = request.getOprocentowanie(i, oprocentowanie, yearMonth.lengthOfYear()) * kwota;
+			double odsetki = request.getOprocentowanie(i, oprocentowanie, yearMonth.lengthOfYear()) * yearMonth.lengthOfMonth() * kwota;
 			odsetkiCalkowite += odsetki;
 			
 			if (isOverpaymentAllowed(request, i)) {
@@ -39,7 +39,7 @@ public class RatyMalejace {
 					
 					if(request.getKindOfOverpayment() == KindOfOverpayment.TIME) {
 						double tempKwota = kwota - rataKapitalowa;
-						double tempOdsetki = request.getOprocentowanie(i, oprocentowanie, 12) * tempKwota;
+						double tempOdsetki = request.getOprocentowanie(i, oprocentowanie, yearMonth.lengthOfYear()) * yearMonth.lengthOfMonth() * tempKwota;
 						nextRataKapitalowa = installments.get(i + 1) - tempOdsetki;
 					}
 				}
