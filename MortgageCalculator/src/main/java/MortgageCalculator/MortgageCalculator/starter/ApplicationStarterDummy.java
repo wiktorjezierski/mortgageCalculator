@@ -21,16 +21,16 @@ public class ApplicationStarterDummy {
 		
 		
 		Request request = RequestBuilder.with()//
-				.kwota(242400)//
+				.kwota(237433)//
 				.okres(15*12)//
 				.marza(2)//
 				.zmianaMarzy(zmianaMarzy)
-				.wibor(1.7)//
+				.wibor(1.81)//
 				.prowizja(0)//
 				.nadplata(1000)//
 				.opoznienieNadplaty(12)//
 				.czestotliwoscNadplat(CzestotliwoscNadplat.MONTHLY)//
-				.kindOfOverpayment(KindOfOverpayment.TIME)//
+				.kindOfOverpayment(KindOfOverpayment.INSTALLMENT)//
 				.build();
 		
 		rm.calculate(request);

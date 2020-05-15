@@ -116,11 +116,11 @@ public class Request {
 		this.zmianaWiboru = zmianaWiboru;
 	}
 
-	public double getOprocentowanie() {
-		return (marza + wibor) / (100.0 * 12.0);
+	public double getOprocentowanie(int yearLength) {
+		return (marza + wibor) / (100.0 * (double) yearLength);
 	}
 
-	public double getOprocentowanie(int rata, double obecneOprocentowanie) {
+	public double getOprocentowanie(int rata, double obecneOprocentowanie, int yearLength) {
 		Double nowaMarza = zmianaMarzy.get(rata);
 		Double nowyWibor = zmianaWiboru.get(rata);
 
@@ -136,7 +136,7 @@ public class Request {
 			nowyWibor = findValidValue(rata, zmianaWiboru, wibor);
 		}
 
-		return (nowaMarza + nowyWibor) / (100 * 12);
+		return (nowaMarza + nowyWibor) / (100 * (double) yearLength);
 	}
 	
 	private double findValidValue(int range, Map<Integer, Double> values, double defaultValue) {
